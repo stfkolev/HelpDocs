@@ -1,0 +1,10 @@
+{
+    "parent_navigation_id": "rules",
+    "display_order": 2,
+    "link": "rules-categories",
+    "icon": "fa-box",
+    "admin_permission_id": "",
+    "debug_only": false,
+    "development_only": false,
+    "hide_no_children": false
+}

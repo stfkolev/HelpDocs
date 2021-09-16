@@ -1,0 +1,45 @@
+<xf:title>{{ phrase('Help Documents') }}</xf:title>
+<xf:css src="help_docs.less" />
+
+<xf:breadcrumb href="{{ link('help-docs') }}"
+	>{{ phrase('help') }}</xf:breadcrumb
+>
+
+<xf:if is="$sections is not empty">
+	<xf:foreach loop="$sections" value="$section">
+		<xf:if is="$section.RuleCategories is not empty">
+			<div class="block">
+				<div class="block-container">
+					<h2 class="block-header">{$section.name}</h2>
+					<div class="block-body">
+						<xf:if is="$section.RuleCategories is not empty">
+							<xf:foreach loop="$section.RuleCategories" value="$category">
+								<li class="block-row block-row--separated">
+									<div class="contentRow">
+										<div class="contentRow-main">
+											<a href="{{ link('help-docs/view', $category) }}"
+												><h2 class="contentRow-header">{$category.name}</h2></a
+											>
+											<div class="contentRow-minor">
+												{$category.description|raw}
+											</div>
+										</div>
+									</div>
+								</li>
+							</xf:foreach>
+
+							<xf:else />
+
+							<div class="blockMessage">
+								{{ phrase('no_items_have_been_created_yet') }}
+							</div>
+						</xf:if>
+					</div>
+				</div>
+			</div>
+		</xf:if>
+	</xf:foreach>
+
+	<xf:else />
+	<div class="blockMessage">{{ phrase('no_items_have_been_created_yet') }}</div>
+</xf:if>

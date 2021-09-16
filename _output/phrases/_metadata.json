@@ -1,0 +1,26 @@
+{
+    "admin_navigation.allrules.txt": {
+        "global_cache": false,
+        "version_id": 1,
+        "version_string": "1.0.0",
+        "hash": "1f4da964f8eab62e96e8cfe406e44364"
+    },
+    "admin_navigation.rules.txt": {
+        "global_cache": false,
+        "version_id": 1,
+        "version_string": "1.0.0",
+        "hash": "ad6a145c1fc04c221fb163c9df7b8122"
+    },
+    "admin_navigation.rulesSection.txt": {
+        "global_cache": false,
+        "version_id": 1,
+        "version_string": "1.0.0",
+        "hash": "52017fad51893b27e01cced06b1dd550"
+    },
+    "admin_navigation.rulescategories.txt": {
+        "global_cache": false,
+        "version_id": 1,
+        "version_string": "1.0.0",
+        "hash": "a532457b5a0db215e30307ec7f14591a"
+    }
+}

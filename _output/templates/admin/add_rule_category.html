@@ -1,0 +1,47 @@
+<xf:title>{{ phrase('Add Rule Category') }}</xf:title>
+
+<xf:form action="{{ link('rules-categories/store') }}" class="block">
+	<div class="block-container">
+		<div class="block-body">
+			<div class="js-forumTypes">
+				<xf:selectrow
+					name="rule_section_id"
+					label="{{ phrase('Category Section') }}"
+				>
+					<xf:foreach loop="$sections" key="$key" value="$section">
+						<xf:option value="{{ $section->id }}"
+							>{{ $section.name }}</xf:option
+						>
+					</xf:foreach>
+				</xf:selectrow>
+
+				<xf:textboxrow
+					name="name"
+					autofocus="autofocus"
+					autocomplete="name"
+					label="{{ phrase('Category Name') }}"
+					required="required"
+				/>
+
+				<xf:textarearow
+					name="description"
+					autofocus="autofocus"
+					autocomplete="description"
+					label="{{ phrase('Category Description') }}"
+					required="required"
+				/>
+
+				<xf:numberboxrow
+					name="order"
+					label="{{ phrase('Category Order') }}"
+					default="0"
+					min="0"
+					max="2000"
+					step="1"
+					required="required"
+				/>
+			</div>
+		</div>
+		<xf:submitrow submit="{{ phrase('save') }}" />
+	</div>
+</xf:form>

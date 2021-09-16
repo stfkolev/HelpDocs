@@ -1,0 +1,67 @@
+{
+    "admin/add_rule.html": {
+        "version_id": 1,
+        "version_string": "1.0.0",
+        "hash": "67c366e6782f72f48428589386ead411"
+    },
+    "admin/add_rule_category.html": {
+        "version_id": 1,
+        "version_string": "1.0.0",
+        "hash": "415f9793b2fe46e0d24bb09467523710"
+    },
+    "admin/add_rule_section.html": {
+        "version_id": 1,
+        "version_string": "1.0.0",
+        "hash": "9876036c4bcf149d6758d9af9429b514"
+    },
+    "admin/edit_rule.html": {
+        "version_id": 1,
+        "version_string": "1.0.0",
+        "hash": "ad7b7999e7ccec560be144dddac93f8f"
+    },
+    "admin/edit_rule_category.html": {
+        "version_id": 1,
+        "version_string": "1.0.0",
+        "hash": "92a2b4a53c91a83a5637edd3d69c62b3"
+    },
+    "admin/edit_rule_section.html": {
+        "version_id": 1,
+        "version_string": "1.0.0",
+        "hash": "7455cc0d7bdb252a871742637d870d72"
+    },
+    "admin/help_docs.less": {
+        "version_id": 1,
+        "version_string": "1.0.0",
+        "hash": "7ede6536fcbbe8cd660408cf0c0156d8"
+    },
+    "admin/rules.html": {
+        "version_id": 1,
+        "version_string": "1.0.0",
+        "hash": "c49101dea0a78ef9177311b2f2e41d1c"
+    },
+    "admin/rules_categories.html": {
+        "version_id": 1,
+        "version_string": "1.0.0",
+        "hash": "ed30b09e5ebafbcb10a45dcfdc6f13d5"
+    },
+    "admin/rules_sections.html": {
+        "version_id": 1,
+        "version_string": "1.0.0",
+        "hash": "7ea28ce7cf1ee4ad72b767446d5f96e1"
+    },
+    "public/help_docs.html": {
+        "version_id": 1,
+        "version_string": "1.0.0",
+        "hash": "1178d702c386122cd9aa03de2e56bfd0"
+    },
+    "public/help_docs.less": {
+        "version_id": 1,
+        "version_string": "1.0.0",
+        "hash": "7ede6536fcbbe8cd660408cf0c0156d8"
+    },
+    "public/help_docs_category.html": {
+        "version_id": 1,
+        "version_string": "1.0.0",
+        "hash": "167afd2467a5ebbed1e2607dcf9feecb"
+    }
+}

@@ -1,0 +1,43 @@
+<xf:title>{{ phrase('Edit Rule') }}</xf:title>
+
+<xf:form action="{{ link('rules/edit', $rule) }}" class="block">
+	<div class="block-container">
+		<div class="block-body">
+			<div class="js-forumTypes">
+				<xf:selectrow
+					name="rule_category_id"
+					label="{{ phrase('Rule Category') }}"
+				>
+					<xf:foreach loop="$categories" key="$key" value="$category">
+						<xf:option
+							value="{{ $category->id }}"
+							selected="{{ $category->id == $rule->rule_category_id ? 'selected' : '' }}"
+							>{{ $category.name }}</xf:option
+						>
+					</xf:foreach>
+				</xf:selectrow>
+
+				<xf:textarearow
+					name="body"
+					autofocus="autofocus"
+					autocomplete="body"
+					label="{{ phrase('Rule') }}"
+					required="required"
+					value="{{ $rule->body }}"
+				/>
+
+				<xf:numberboxrow
+					name="order"
+					label="{{ phrase('Rule Order') }}"
+					default="0"
+					min="0"
+					max="2000"
+					step="1"
+					value="{{ $Rule->order }}"
+					required="required"
+				/>
+			</div>
+		</div>
+		<xf:submitrow submit="{{ phrase('save') }}" />
+	</div>
+</xf:form>

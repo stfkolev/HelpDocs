@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<routes>
+  <route route_type="admin" route_prefix="rules" format=":int&lt;id,title&gt;/" controller="Evil\HelpDocs\Admin\Controller\Rules" context="rules"/>
+  <route route_type="admin" route_prefix="rules-categories" format=":int&lt;id,title&gt;/" controller="Evil\HelpDocs\Admin\Controller\RulesCategories" context="rulesCategories"/>
+  <route route_type="admin" route_prefix="rules-sections" format=":int&lt;id,title&gt;/" controller="Evil\HelpDocs\Admin\Controller\RulesSections"/>
+  <route route_type="public" route_prefix="help-docs" format=":int&lt;id,title&gt;/" controller="Evil\HelpDocs\Controller\Rules"/>
+</routes>

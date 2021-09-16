@@ -1,0 +1,28 @@
+<xf:title>{{ phrase('Add Rule Section') }}</xf:title>
+
+<xf:form action="{{ link('rules-sections/store') }}" class="block">
+	<div class="block-container">
+		<div class="block-body">
+			<div class="js-forumTypes">
+				<xf:textboxrow
+					name="name"
+					autofocus="autofocus"
+					autocomplete="name"
+					label="{{ phrase('Section Name') }}"
+					required="required"
+				/>
+
+				<xf:numberboxrow
+					name="order"
+					label="{{ phrase('Section Order') }}"
+					default="0"
+					min="0"
+					max="2000"
+					step="1"
+					required="required"
+				/>
+			</div>
+		</div>
+		<xf:submitrow submit="{{ phrase('save') }}" />
+	</div>
+</xf:form>

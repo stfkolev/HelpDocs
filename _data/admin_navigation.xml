@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<admin_navigation>
+  <admin_navigation_entry navigation_id="allrules" parent_navigation_id="rules" display_order="1" link="rules" icon="fa-list" debug_only="0" development_only="0" hide_no_children="0"/>
+  <admin_navigation_entry navigation_id="rules" display_order="1" link="forum-rules" icon="fa-book" admin_permission_id="upgradeXenForo" debug_only="0" development_only="0" hide_no_children="0"/>
+  <admin_navigation_entry navigation_id="rulesSection" parent_navigation_id="rules" display_order="3" link="rules-sections" debug_only="0" development_only="0" hide_no_children="0"/>
+  <admin_navigation_entry navigation_id="rulescategories" parent_navigation_id="rules" display_order="2" link="rules-categories" icon="fa-box" debug_only="0" development_only="0" hide_no_children="0"/>
+</admin_navigation>

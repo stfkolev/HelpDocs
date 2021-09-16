@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phrases>
+  <phrase title="admin_navigation.allrules" version_id="1" version_string="1.0.0"><![CDATA[Rules]]></phrase>
+  <phrase title="admin_navigation.rules" version_id="1" version_string="1.0.0"><![CDATA[Forum Rules]]></phrase>
+  <phrase title="admin_navigation.rulesSection" version_id="1" version_string="1.0.0"><![CDATA[Rule Sections]]></phrase>
+  <phrase title="admin_navigation.rulescategories" version_id="1" version_string="1.0.0"><![CDATA[Rule Categories]]></phrase>
+</phrases>

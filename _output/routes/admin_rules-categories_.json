@@ -1,0 +1,11 @@
+{
+    "route_type": "admin",
+    "route_prefix": "rules-categories",
+    "sub_name": "",
+    "format": ":int<id,title>/",
+    "build_class": "",
+    "build_method": "",
+    "controller": "Evil\\HelpDocs\\Admin\\Controller\\RulesCategories",
+    "context": "rulesCategories",
+    "action_prefix": ""
+}

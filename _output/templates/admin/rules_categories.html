@@ -1,0 +1,74 @@
+<xf:title>{{ phrase('Rules Categories') }}</xf:title>
+
+<xf:pageaction>
+	<div class="buttonGroup">
+		<xf:button
+			href="{{ link('rules-categories/add') }}"
+			icon="add"
+			overlay="true"
+			>{{ phrase('Add Rule Category') }}</xf:button
+		>
+	</div>
+</xf:pageaction>
+
+<xf:if is="$categories.count()">
+	<div class="block">
+		<div class="block-outer">
+			<xf:macro
+				template="filter_macros"
+				name="quick_filter"
+				arg-key="categories"
+				arg-class="block-outer-opposite"
+			/>
+		</div>
+		<div class="block-container">
+			<div class="block-body">
+				<xf:datalist>
+					<xf:foreach loop="$categories" value="$category">
+						<xf:datarow>
+							<xf:cell
+								class="dataList-cell--link dataList-cell--main"
+								hash="{$category.id}"
+							>
+								<a href="{{ link('rules-categories/edit', $category) }}">
+									<div class="u-depth1">
+										<div class="dataList-mainRow">
+											{$category.name}
+											<span class="dataList-hint" dir="auto">
+												{$category.description}
+											</span>
+										</div>
+										<div class="dataList-subRow">
+											<strong>{{ phrase('Category Order: ') }}</strong>
+											{$category.order} |
+											<strong>{{ phrase('Category Section: ') }}</strong>
+											{$category.RuleSection.name}
+										</div>
+									</div>
+								</a>
+							</xf:cell>
+
+							<xf:action
+								class="{{ {$customPermissions.{$category.id}} ? 'dataList-cell--highlighted' : '' }}"
+								href="{{ link('rules-categories/edit', $category) }}"
+							>
+								{{ phrase('edit') }}
+							</xf:action>
+							<xf:delete
+								overlay="true"
+								href="{{ link('rules-categories/delete', $category) }}"
+							/>
+						</xf:datarow>
+					</xf:foreach>
+				</xf:datalist>
+			</div>
+			<div class="block-footer">
+				<span class="block-footer-counter"
+					>{{ display_totals($categories.count()) }}</span
+				>
+			</div>
+		</div>
+	</div>
+	<xf:else />
+	<div class="blockMessage">{{ phrase('no_items_have_been_created_yet') }}</div>
+</xf:if>

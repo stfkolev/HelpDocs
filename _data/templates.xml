@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+  <template type="admin" title="add_rule" version_id="1" version_string="1.0.0"><![CDATA[<xf:title>{{ phrase('Add Rule') }}</xf:title>
+
+<xf:form action="{{ link('rules/store') }}" class="block">
+	<div class="block-container">
+		<div class="block-body">
+			<div class="js-forumTypes">
+				<xf:selectrow
+					name="rule_category_id"
+					label="{{ phrase('Rule Category') }}"
+				>
+					<xf:foreach loop="$categories" key="$key" value="$category">
+						<xf:option value="{{ $category->id }}"
+							>{{ $category.name }}</xf:option
+						>
+					</xf:foreach>
+				</xf:selectrow>
+
+				<xf:textarearow
+					name="body"
+					autofocus="autofocus"
+					autocomplete="body"
+					label="{{ phrase('Rule Body') }}"
+					required="required"
+				/>
+
+				<xf:numberboxrow
+					name="order"
+					label="{{ phrase('Rule Order') }}"
+					default="0"
+					min="0"
+					max="2000"
+					step="1"
+					required="required"
+				/>
+			</div>
+		</div>
+		<xf:submitrow submit="{{ phrase('save') }}" />
+	</div>
+</xf:form>
+]]></template>
+  <template type="admin" title="add_rule_category" version_id="1" version_string="1.0.0"><![CDATA[<xf:title>{{ phrase('Add Rule Category') }}</xf:title>
+
+<xf:form action="{{ link('rules-categories/store') }}" class="block">
+	<div class="block-container">
+		<div class="block-body">
+			<div class="js-forumTypes">
+				<xf:selectrow
+					name="rule_section_id"
+					label="{{ phrase('Category Section') }}"
+				>
+					<xf:foreach loop="$sections" key="$key" value="$section">
+						<xf:option value="{{ $section->id }}"
+							>{{ $section.name }}</xf:option
+						>
+					</xf:foreach>
+				</xf:selectrow>
+
+				<xf:textboxrow
+					name="name"
+					autofocus="autofocus"
+					autocomplete="name"
+					label="{{ phrase('Category Name') }}"
+					required="required"
+				/>
+
+				<xf:textarearow
+					name="description"
+					autofocus="autofocus"
+					autocomplete="description"
+					label="{{ phrase('Category Description') }}"
+					required="required"
+				/>
+
+				<xf:numberboxrow
+					name="order"
+					label="{{ phrase('Category Order') }}"
+					default="0"
+					min="0"
+					max="2000"
+					step="1"
+					required="required"
+				/>
+			</div>
+		</div>
+		<xf:submitrow submit="{{ phrase('save') }}" />
+	</div>
+</xf:form>
+]]></template>
+  <template type="admin" title="add_rule_section" version_id="1" version_string="1.0.0"><![CDATA[<xf:title>{{ phrase('Add Rule Section') }}</xf:title>
+
+<xf:form action="{{ link('rules-sections/store') }}" class="block">
+	<div class="block-container">
+		<div class="block-body">
+			<div class="js-forumTypes">
+				<xf:textboxrow
+					name="name"
+					autofocus="autofocus"
+					autocomplete="name"
+					label="{{ phrase('Section Name') }}"
+					required="required"
+				/>
+
+				<xf:numberboxrow
+					name="order"
+					label="{{ phrase('Section Order') }}"
+					default="0"
+					min="0"
+					max="2000"
+					step="1"
+					required="required"
+				/>
+			</div>
+		</div>
+		<xf:submitrow submit="{{ phrase('save') }}" />
+	</div>
+</xf:form>
+]]></template>
+  <template type="admin" title="edit_rule" version_id="1" version_string="1.0.0"><![CDATA[<xf:title>{{ phrase('Edit Rule') }}</xf:title>
+
+<xf:form action="{{ link('rules/edit', $rule) }}" class="block">
+	<div class="block-container">
+		<div class="block-body">
+			<div class="js-forumTypes">
+				<xf:selectrow
+					name="rule_category_id"
+					label="{{ phrase('Rule Category') }}"
+				>
+					<xf:foreach loop="$categories" key="$key" value="$category">
+						<xf:option
+							value="{{ $category->id }}"
+							selected="{{ $category->id == $rule->rule_category_id ? 'selected' : '' }}"
+							>{{ $category.name }}</xf:option
+						>
+					</xf:foreach>
+				</xf:selectrow>
+
+				<xf:textarearow
+					name="body"
+					autofocus="autofocus"
+					autocomplete="body"
+					label="{{ phrase('Rule') }}"
+					required="required"
+					value="{{ $rule->body }}"
+				/>
+
+				<xf:numberboxrow
+					name="order"
+					label="{{ phrase('Rule Order') }}"
+					default="0"
+					min="0"
+					max="2000"
+					step="1"
+					value="{{ $Rule->order }}"
+					required="required"
+				/>
+			</div>
+		</div>
+		<xf:submitrow submit="{{ phrase('save') }}" />
+	</div>
+</xf:form>
+]]></template>
+  <template type="admin" title="edit_rule_category" version_id="1" version_string="1.0.0"><![CDATA[<xf:title>{{ phrase('Edit Rule Category') }}</xf:title>
+
+<xf:form action="{{ link('rules-categories/edit', $category) }}" class="block">
+	<div class="block-container">
+		<div class="block-body">
+			<div class="js-forumTypes">
+				<xf:selectrow
+					name="rule_section_id"
+					label="{{ phrase('Rule Category') }}"
+				>
+					<xf:foreach loop="$sections" key="$key" value="$section">
+						<xf:option
+							value="{{ $section->id }}"
+							selected="{{ $section->id == $category->rule_section_id ? 'selected' : '' }}"
+							>{{ $section.name }}</xf:option
+						>
+					</xf:foreach>
+				</xf:selectrow>
+
+				<xf:textboxrow
+					name="name"
+					autofocus="autofocus"
+					autocomplete="name"
+					label="{{ phrase('Category Name') }}"
+					required="required"
+					value="{{ $category->name }}"
+				/>
+
+				<xf:textarearow
+					name="description"
+					autofocus="autofocus"
+					autocomplete="description"
+					label="{{ phrase('Category Description') }}"
+					required="required"
+					value="{{ $category->description }}"
+				/>
+
+				<xf:numberboxrow
+					name="order"
+					label="{{ phrase('Category Order') }}"
+					default="0"
+					min="0"
+					max="2000"
+					step="1"
+					value="{{ $category->order }}"
+					required="required"
+				/>
+			</div>
+		</div>
+		<xf:submitrow submit="{{ phrase('save') }}" />
+	</div>
+</xf:form>
+]]></template>
+  <template type="admin" title="edit_rule_section" version_id="1" version_string="1.0.0"><![CDATA[<xf:title>{{ phrase('Edit Rule Section') }}</xf:title>
+
+<xf:form action="{{ link('rules-sections/edit', $section) }}" class="block">
+	<div class="block-container">
+		<div class="block-body">
+			<div class="js-forumTypes">
+				<xf:textboxrow
+					name="name"
+					autofocus="autofocus"
+					autocomplete="name"
+					label="{{ phrase('Section Name') }}"
+					required="required"
+					value="{{ $section->name }}"
+				/>
+
+				<xf:numberboxrow
+					name="order"
+					label="{{ phrase('Section Order') }}"
+					default="0"
+					min="0"
+					max="2000"
+					step="1"
+					value="{{ $section->order }}"
+					required="required"
+				/>
+			</div>
+		</div>
+		<xf:submitrow submit="{{ phrase('save') }}" />
+	</div>
+</xf:form>
+]]></template>
+  <template type="admin" title="rules" version_id="1" version_string="1.0.0"><![CDATA[<xf:title>{{ phrase('Rules') }}</xf:title>
+
+<xf:pageaction>
+	<div class="buttonGroup">
+		<xf:button href="{{ link('rules/add') }}" icon="add" overlay="true"
+			>{{ phrase('Add Rule') }}</xf:button
+		>
+	</div>
+</xf:pageaction>
+
+<xf:if is="$rules.count()">
+	<div class="block">
+		<div class="block-outer">
+			<xf:macro
+				template="filter_macros"
+				name="quick_filter"
+				arg-key="rules"
+				arg-class="block-outer-opposite"
+			/>
+		</div>
+		<div class="block-container">
+			<div class="block-body">
+				<xf:datalist>
+					<xf:foreach loop="$rules" value="$rule">
+						<xf:set var="$rule_category" value="{$rule.RuleCategory}" />
+						<xf:datarow>
+							<xf:cell
+								class="dataList-cell--link dataList-cell--main"
+								hash="{$rule.id}"
+							>
+								<a href="{{ link('rules/edit', $rule) }}">
+									<div class="u-depth1">
+										<div class="dataList-mainRow">{$rule.body}</div>
+										<div class="dataList-subRow">
+											<strong>{{ phrase('Order: ') }} {$rule.order}</strong>
+											|
+											<strong
+												>{{ phrase('Category: ') }}
+												{$rule.RuleCategory.name}</strong
+											>
+										</div>
+									</div>
+								</a>
+							</xf:cell>
+							<xf:action
+								class="{{ {$customPermissions.{$rule.id}} ? 'dataList-cell--highlighted' : '' }}"
+								href="{{ link('rules/edit', $rule) }}"
+							>
+								{{ phrase('edit') }}
+							</xf:action>
+							<xf:delete href="{{ link('rules/delete', $rule) }}" />
+						</xf:datarow>
+					</xf:foreach>
+				</xf:datalist>
+			</div>
+			<div class="block-footer">
+				<span class="block-footer-counter"
+					>{{ display_totals($rules.count()) }}</span
+				>
+			</div>
+		</div>
+	</div>
+	<xf:else />
+	<div class="blockMessage">{{ phrase('no_items_have_been_created_yet') }}</div>
+</xf:if>
+]]></template>
+  <template type="admin" title="rules_categories" version_id="1" version_string="1.0.0"><![CDATA[<xf:title>{{ phrase('Rules Categories') }}</xf:title>
+
+<xf:pageaction>
+	<div class="buttonGroup">
+		<xf:button
+			href="{{ link('rules-categories/add') }}"
+			icon="add"
+			overlay="true"
+			>{{ phrase('Add Rule Category') }}</xf:button
+		>
+	</div>
+</xf:pageaction>
+
+<xf:if is="$categories.count()">
+	<div class="block">
+		<div class="block-outer">
+			<xf:macro
+				template="filter_macros"
+				name="quick_filter"
+				arg-key="categories"
+				arg-class="block-outer-opposite"
+			/>
+		</div>
+		<div class="block-container">
+			<div class="block-body">
+				<xf:datalist>
+					<xf:foreach loop="$categories" value="$category">
+						<xf:datarow>
+							<xf:cell
+								class="dataList-cell--link dataList-cell--main"
+								hash="{$category.id}"
+							>
+								<a href="{{ link('rules-categories/edit', $category) }}">
+									<div class="u-depth1">
+										<div class="dataList-mainRow">
+											{$category.name}
+											<span class="dataList-hint" dir="auto">
+												{$category.description}
+											</span>
+										</div>
+										<div class="dataList-subRow">
+											<strong>{{ phrase('Category Order: ') }}</strong>
+											{$category.order} |
+											<strong>{{ phrase('Category Section: ') }}</strong>
+											{$category.RuleSection.name}
+										</div>
+									</div>
+								</a>
+							</xf:cell>
+
+							<xf:action
+								class="{{ {$customPermissions.{$category.id}} ? 'dataList-cell--highlighted' : '' }}"
+								href="{{ link('rules-categories/edit', $category) }}"
+							>
+								{{ phrase('edit') }}
+							</xf:action>
+							<xf:delete
+								overlay="true"
+								href="{{ link('rules-categories/delete', $category) }}"
+							/>
+						</xf:datarow>
+					</xf:foreach>
+				</xf:datalist>
+			</div>
+			<div class="block-footer">
+				<span class="block-footer-counter"
+					>{{ display_totals($categories.count()) }}</span
+				>
+			</div>
+		</div>
+	</div>
+	<xf:else />
+	<div class="blockMessage">{{ phrase('no_items_have_been_created_yet') }}</div>
+</xf:if>
+]]></template>
+  <template type="admin" title="rules_sections" version_id="1" version_string="1.0.0"><![CDATA[<xf:title>{{ phrase('Rules Sections') }}</xf:title>
+
+<xf:pageaction>
+	<div class="buttonGroup">
+		<xf:button href="{{ link('rules-sections/add') }}" icon="add" overlay="true"
+			>{{ phrase('Add Rule Section') }}</xf:button
+		>
+	</div>
+</xf:pageaction>
+
+<xf:if is="$sections.count()">
+	<div class="block">
+		<div class="block-outer">
+			<xf:macro
+				template="filter_macros"
+				name="quick_filter"
+				arg-key="sections"
+				arg-class="block-outer-opposite"
+			/>
+		</div>
+		<div class="block-container">
+			<div class="block-body">
+				<xf:datalist>
+					<xf:foreach loop="$sections" value="$section">
+						<xf:datarow>
+							<xf:cell
+								class="dataList-cell--link dataList-cell--main"
+								hash="{$section.id}"
+							>
+								<a href="{{ link('rules-sections/edit', $section) }}">
+									<div class="u-depth1">
+										<div class="dataList-mainRow">{$section.name}</div>
+										<div class="dataList-subRow">
+											<strong>{{ phrase('Order: ') }} {$section.order}</strong>
+										</div>
+									</div>
+								</a>
+							</xf:cell>
+
+							<xf:action
+								class="{{ {$customPermissions.{$section.id}} ? 'dataList-cell--highlighted' : '' }}"
+								href="{{ link('rules-sections/edit', $section) }}"
+							>
+								{{ phrase('edit') }}
+							</xf:action>
+							<xf:delete
+								overlay="false"
+								href="{{ link('rules-sections/delete', $section) }}"
+							/>
+						</xf:datarow>
+					</xf:foreach>
+				</xf:datalist>
+			</div>
+			<div class="block-footer">
+				<span class="block-footer-counter"
+					>{{ display_totals($sections.count()) }}</span
+				>
+			</div>
+		</div>
+	</div>
+	<xf:else />
+	<div class="blockMessage">{{ phrase('no_items_have_been_created_yet') }}</div>
+</xf:if>
+]]></template>
+  <template type="public" title="help_docs" version_id="1" version_string="1.0.0"><![CDATA[<xf:title>{{ phrase('Help Documents') }}</xf:title>
+<xf:css src="help_docs.less" />
+
+<xf:breadcrumb href="{{ link('help-docs') }}"
+	>{{ phrase('help') }}</xf:breadcrumb
+>
+
+<xf:if is="$sections is not empty">
+	<xf:foreach loop="$sections" value="$section">
+		<xf:if is="$section.RuleCategories is not empty">
+			<div class="block">
+				<div class="block-container">
+					<h2 class="block-header">{$section.name}</h2>
+					<div class="block-body">
+						<xf:if is="$section.RuleCategories is not empty">
+							<xf:foreach loop="$section.RuleCategories" value="$category">
+								<li class="block-row block-row--separated">
+									<div class="contentRow">
+										<div class="contentRow-main">
+											<a href="{{ link('help-docs/view', $category) }}"
+												><h2 class="contentRow-header">{$category.name}</h2></a
+											>
+											<div class="contentRow-minor">
+												{$category.description|raw}
+											</div>
+										</div>
+									</div>
+								</li>
+							</xf:foreach>
+
+							<xf:else />
+
+							<div class="blockMessage">
+								{{ phrase('no_items_have_been_created_yet') }}
+							</div>
+						</xf:if>
+					</div>
+				</div>
+			</div>
+		</xf:if>
+	</xf:foreach>
+
+	<xf:else />
+	<div class="blockMessage">{{ phrase('no_items_have_been_created_yet') }}</div>
+</xf:if>
+]]></template>
+  <template type="public" title="help_docs.less" version_id="1" version_string="1.0.0"><![CDATA[.msg-outer {
+	padding: 3px;
+	margin: 50px;
+}
+
+.msg_inner {
+	background: @xf-paletteNeutral1;
+	padding: 10px;
+}
+
+.menu-header {
+	color: @xf-paletteColor4;
+	padding: 10px;
+	border-bottom: 1px solid @xf-paletteNeutral3;
+	font-size: 14px;
+	// text-shadow: 1px 1px 1px @xf-paletteColor4;
+	font-weight: 400;
+	margin: -10px;
+	margin-bottom: 5px;
+}
+
+.row {
+	border-bottom: 1px solid @xf-paletteNeutral3;
+	position: relative;
+	overflow: hidden;
+	padding: 5px 0;
+
+	&:first-child {
+		border-top: none;
+	}
+
+	&:last-child {
+		border-bottom: none;
+	}
+
+	a {
+		color: @xf-paletteColor4;
+		text-decoration: none;
+
+		&:hover {
+			color: @xf-paletteColor5;
+		}
+	}
+}
+
+.menu-body-lg {
+	margin-top: 15px;
+}
+
+.row-alt {
+	border-bottom: 1px solid @xf-paletteNeutral3;
+	position: relative;
+	overflow: hidden;
+	padding: 5px 0;
+}
+
+.row-index-bs {
+	border-bottom: 1px solid @xf-paletteNeutral3;
+	position: relative;
+	overflow: hidden;
+	padding: 5px 0;
+}
+]]></template>
+  <template type="public" title="help_docs_category" version_id="1" version_string="1.0.0"><![CDATA[<xf:title>{{ $category->name }}</xf:title>
+
+<xf:breadcrumb href="{{ link('help-docs') }}"
+	>{{ phrase('help') }}</xf:breadcrumb
+>
+<xf:breadcrumb href="{{ link('help-docs/view', $category) }}"
+	>{$category.name}</xf:breadcrumb
+>
+
+<div class="block">
+	<div class="block-container">
+		<xf:if is="$category.Rules is not empty">
+			<ol class="block-body">
+				<xf:foreach
+					loop="{{ $category.Rules }}"
+					key="$key"
+					i="$index"
+					value="$rule"
+				>
+					<li class="block-row block-row--separated">
+						<div class="contentRow">
+							<span
+								class="
+									contentRow-figure
+									contentRow-figure--text
+									contentRow-figure--fixedSmall
+								"
+								>{$index}</span
+							>
+							<div class="contentRow-main">
+								<div class="contentRow-title">{$rule.body}</div>
+							</div>
+						</div>
+					</li>
+				</xf:foreach>
+			</ol>
+
+			<xf:else />
+			<div class="blockMessage">
+				{{ phrase('no_items_have_been_created_yet') }}
+			</div>
+		</xf:if>
+	</div>
+</div>
+]]></template>
+</templates>
