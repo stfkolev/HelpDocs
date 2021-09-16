@@ -21,7 +21,7 @@ class Setup extends AbstractSetup
         {
             $table->addColumn('id', 'int')->autoIncrement();
             $table->addColumn('rule_category_id', 'int');
-            $table->addColumn('body', 'varchar', 255);
+            $table->addColumn('body', 'varchar', 2048);
             $table->addColumn('order', 'int')->setDefault(0);
 			
             $table->addPrimaryKey('id');
